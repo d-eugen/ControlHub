@@ -27,6 +27,16 @@ public class TestDataPreloader {
         this.operatingSystemRepository = operatingSystemRepository;
     }
 
+    public void clearAndPreloadData() {
+        clearData();
+        preloadData();
+    }
+
+    public void clearData() {
+        remoteHostRepository.deleteAll();
+        availabilityStateRepository.deleteAll();
+        operatingSystemRepository.deleteAll();
+    }
     public void preloadData() {
         preloadAvailabilityStateTypeEnums();
         preloadOperatingSystemTypeEnums();

@@ -10,7 +10,7 @@ public class ControlcenterApplication {
 		SpringApplication application = new SpringApplication(ControlcenterApplication.class);
 
 		// Add custom initializer class to run before application context is initialized
-		application.addInitializers(new DatabaseInitializer());
+		application.addInitializers(new DatasourceInitializer());
 
 		application.run(args);
 	}

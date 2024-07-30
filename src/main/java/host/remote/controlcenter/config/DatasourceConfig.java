@@ -1,14 +1,17 @@
 package host.remote.controlcenter.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
+import java.util.Objects;
 
 @Configuration
+@Conditional(MySqlCondition.class)
 public class DatasourceConfig {
 
     private final Environment environment;
@@ -30,7 +33,7 @@ public class DatasourceConfig {
     public static DataSource getDataSourceWithoutDatabase(Environment env)
     {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
+        dataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("spring.datasource.driver-class-name")));
         dataSource.setUrl(env.getProperty("spring.datasource.url"));
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
         dataSource.setPassword(env.getProperty("spring.datasource.password"));
@@ -44,7 +47,7 @@ public class DatasourceConfig {
     public static DataSource getDataSourceWithDatabase(Environment env)
     {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
+        dataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("spring.datasource.driver-class-name")));
         dataSource.setUrl(env.getProperty("spring.datasource.url") + "/" + env.getProperty("spring.application.name"));
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
         dataSource.setPassword(env.getProperty("spring.datasource.password"));

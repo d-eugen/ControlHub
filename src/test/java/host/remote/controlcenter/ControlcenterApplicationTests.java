@@ -14,6 +14,7 @@ import host.remote.controlcenter.model.AvailabilityStateType;
 import host.remote.controlcenter.repository.RemoteHostRepository;
 import host.remote.controlcenter.repository.OperatingSystemRepository;
 import host.remote.controlcenter.repository.AvailabilityStateRepository;
+import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,6 +22,7 @@ import java.util.List;
 
 @SpringBootTest
 @ActiveProfiles("test")
+@ContextConfiguration(initializers = DatasourceInitializer.class)
 class ControlcenterApplicationTests {
 
 	@Autowired
@@ -37,7 +39,7 @@ class ControlcenterApplicationTests {
 
 	@BeforeEach
 	void setUp() {
-		testDataPreloader.preloadData();
+		testDataPreloader.clearAndPreloadData();
 	}
 
 	@Test
