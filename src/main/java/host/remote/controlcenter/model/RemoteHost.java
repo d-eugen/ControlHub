@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Host {
+public class RemoteHost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,10 @@ public class Host {
     private OperatingSystem operatingSystem;
 
     private String operatingSystemDetails;
-    private AvailabilityState state;
+
+    @ManyToOne
+    @JoinColumn(name = "availability_state_id")
+    private AvailabilityState availabilityState;
+
     private LocalDateTime lastUpdated;
 }
