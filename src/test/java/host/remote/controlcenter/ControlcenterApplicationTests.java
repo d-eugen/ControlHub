@@ -21,10 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
 @SpringBootTest
-@ActiveProfiles("test")
-@ContextConfiguration(initializers = DatasourceInitializer.class)
-class ControlcenterApplicationTests {
-
+class ControlcenterApplicationTests extends BaseTestConfig {
 	@Autowired
 	private TestDataPreloader testDataPreloader;
 

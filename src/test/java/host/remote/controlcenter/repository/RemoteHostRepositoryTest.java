@@ -1,9 +1,11 @@
 package host.remote.controlcenter.repository;
 
 import host.remote.controlcenter.BaseTestConfig;
+import host.remote.controlcenter.TestDataPreloader;
 import host.remote.controlcenter.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDateTime;
@@ -13,24 +15,29 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 public class RemoteHostRepositoryTest extends BaseTestConfig {
-
     private final RemoteHostRepository remoteHostRepository;
     private final AvailabilityStateRepository availabilityStateRepository;
     private final OperatingSystemRepository operatingSystemRepository;
+    private final TestDataPreloader testDataPreloader;
 
     private OperatingSystem linuxOs;
     private AvailabilityState onlineState;
 
+    @Autowired
     public RemoteHostRepositoryTest(RemoteHostRepository remoteHostRepository,
                                     AvailabilityStateRepository availabilityStateRepository,
-                                    OperatingSystemRepository operatingSystemRepository) {
+                                    OperatingSystemRepository operatingSystemRepository,
+                                    TestDataPreloader testDataPreloader) {
         this.remoteHostRepository = remoteHostRepository;
         this.availabilityStateRepository = availabilityStateRepository;
         this.operatingSystemRepository = operatingSystemRepository;
+        this.testDataPreloader = testDataPreloader;
     }
 
     @BeforeEach
     public void setup() {
+        testDataPreloader.clearData();
+
         linuxOs = new OperatingSystem(null, OperatingSystemType.LINUX);
         onlineState = new AvailabilityState(null, AvailabilityStateType.ONLINE);
         operatingSystemRepository.save(linuxOs);

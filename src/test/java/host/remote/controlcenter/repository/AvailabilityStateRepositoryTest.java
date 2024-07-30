@@ -1,9 +1,12 @@
 package host.remote.controlcenter.repository;
 
 import host.remote.controlcenter.BaseTestConfig;
+import host.remote.controlcenter.TestDataPreloader;
 import host.remote.controlcenter.model.AvailabilityState;
 import host.remote.controlcenter.model.AvailabilityStateType;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.Optional;
@@ -12,11 +15,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 public class AvailabilityStateRepositoryTest extends BaseTestConfig {
-
     private final AvailabilityStateRepository availabilityStateRepository;
+    private final TestDataPreloader testDataPreloader;
 
-    public AvailabilityStateRepositoryTest(AvailabilityStateRepository availabilityStateRepository) {
+    @Autowired
+    public AvailabilityStateRepositoryTest(AvailabilityStateRepository availabilityStateRepository,
+                                           TestDataPreloader testDataPreloader) {
         this.availabilityStateRepository = availabilityStateRepository;
+        this.testDataPreloader = testDataPreloader;
+    }
+
+    @BeforeEach
+    void setUp() {
+        testDataPreloader.clearData();
     }
 
     @Test
