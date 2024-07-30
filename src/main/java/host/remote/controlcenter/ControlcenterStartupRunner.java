@@ -14,6 +14,6 @@ public class ControlcenterStartupRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println("CommandLineRunner execution");
+        System.out.println("On application startup execution.");
     }
 }
