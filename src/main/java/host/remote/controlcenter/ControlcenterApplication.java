@@ -7,7 +7,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ControlcenterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ControlcenterApplication.class, args);
+		SpringApplication application = new SpringApplication(ControlcenterApplication.class);
+
+		// Add custom initializer class to run before application context is initialized
+		application.addInitializers(new DatabaseInitializer());
+
+		application.run(args);
 	}
 
 }
