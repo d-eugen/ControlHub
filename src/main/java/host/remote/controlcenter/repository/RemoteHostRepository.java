@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface RemoteHostRepository extends JpaRepository<RemoteHost, Long> {
-    Optional<RemoteHost> findByHostname(String hostname);
+    Optional<RemoteHost> findById(long id);
 }
