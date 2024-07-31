@@ -1,7 +1,7 @@
 package host.remote.controlcenter;
 
-import host.remote.controlcenter.config.MySqlDatasourceConfig;
 import host.remote.controlcenter.config.MySqlCondition;
+import host.remote.controlcenter.config.MySqlDatasourceConfig;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.Ordered;
