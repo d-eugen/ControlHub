@@ -1,11 +1,14 @@
 package host.remote.controlcenter.model;
 
-import host.remote.controlcenter.BaseTestConfig;
+import host.remote.controlcenter.AbstractBaseTest;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
-class RemoteHostTest extends BaseTestConfig {
+/**
+ * Core domain object test
+ */
+class RemoteHostTest extends AbstractBaseTest {
 
     @Test
     void testRemoteHostConstructorAndGetters() {

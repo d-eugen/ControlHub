@@ -12,11 +12,11 @@ import java.util.Objects;
 
 @Configuration
 @Conditional(MySqlCondition.class)
-public class DatasourceConfig {
+public class MySqlDatasourceConfig {
 
     private final Environment environment;
 
-    public DatasourceConfig(Environment env) {
+    public MySqlDatasourceConfig(Environment env) {
         this.environment = env;
     }
 

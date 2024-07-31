@@ -1,6 +1,6 @@
 package host.remote.controlcenter;
 
-import host.remote.controlcenter.config.DatasourceConfig;
+import host.remote.controlcenter.config.MySqlDatasourceConfig;
 import host.remote.controlcenter.config.MySqlCondition;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -54,7 +54,7 @@ public class DatasourceInitializer implements ApplicationContextInitializer<Conf
         }
         @Override
         public boolean isDatabaseExist() {
-            DataSource dataSource = DatasourceConfig.getDataSourceWithDatabase(environment);
+            DataSource dataSource = MySqlDatasourceConfig.getDataSourceWithDatabase(environment);
             JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
             try {
@@ -69,7 +69,7 @@ public class DatasourceInitializer implements ApplicationContextInitializer<Conf
 
         @Override
         public void createNewDatabase() {
-            DataSource dataSource = DatasourceConfig.getDataSourceWithoutDatabase(environment);
+            DataSource dataSource = MySqlDatasourceConfig.getDataSourceWithoutDatabase(environment);
             JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
             try {

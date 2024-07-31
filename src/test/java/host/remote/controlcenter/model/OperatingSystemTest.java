@@ -1,10 +1,13 @@
 package host.remote.controlcenter.model;
 
-import host.remote.controlcenter.BaseTestConfig;
+import host.remote.controlcenter.AbstractBaseTest;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class OperatingSystemTest extends BaseTestConfig {
+/**
+ * Core domain object test
+ */
+class OperatingSystemTest extends AbstractBaseTest {
 
     @Test
     void testOperatingSystemConstructorAndGetters() {

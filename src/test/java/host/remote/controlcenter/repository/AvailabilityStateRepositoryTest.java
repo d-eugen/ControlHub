@@ -1,6 +1,6 @@
 package host.remote.controlcenter.repository;
 
-import host.remote.controlcenter.BaseTestConfig;
+import host.remote.controlcenter.AbstractBaseTest;
 import host.remote.controlcenter.TestDataPreloader;
 import host.remote.controlcenter.model.AvailabilityState;
 import host.remote.controlcenter.model.AvailabilityStateType;
@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-public class AvailabilityStateRepositoryTest extends BaseTestConfig {
+public class AvailabilityStateRepositoryTest extends AbstractBaseTest {
     private final AvailabilityStateRepository availabilityStateRepository;
     private final TestDataPreloader testDataPreloader;
 

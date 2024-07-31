@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
 import host.remote.controlcenter.model.RemoteHost;
 import host.remote.controlcenter.model.OperatingSystem;
@@ -14,14 +13,13 @@ import host.remote.controlcenter.model.AvailabilityStateType;
 import host.remote.controlcenter.repository.RemoteHostRepository;
 import host.remote.controlcenter.repository.OperatingSystemRepository;
 import host.remote.controlcenter.repository.AvailabilityStateRepository;
-import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
 @SpringBootTest
-class ControlcenterApplicationTests extends BaseTestConfig {
+class ControlcenterApplicationTests extends AbstractBaseTest {
 	@Autowired
 	private TestDataPreloader testDataPreloader;
 

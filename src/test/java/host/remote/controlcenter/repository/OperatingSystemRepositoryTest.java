@@ -1,6 +1,6 @@
 package host.remote.controlcenter.repository;
 
-import host.remote.controlcenter.BaseTestConfig;
+import host.remote.controlcenter.AbstractBaseTest;
 import host.remote.controlcenter.TestDataPreloader;
 import host.remote.controlcenter.model.OperatingSystem;
 import host.remote.controlcenter.model.OperatingSystemType;
@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-public class OperatingSystemRepositoryTest extends BaseTestConfig {
+public class OperatingSystemRepositoryTest extends AbstractBaseTest {
     private final OperatingSystemRepository operatingSystemRepository;
     private final TestDataPreloader testDataPreloader;
 

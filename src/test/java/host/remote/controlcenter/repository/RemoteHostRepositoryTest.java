@@ -1,6 +1,6 @@
 package host.remote.controlcenter.repository;
 
-import host.remote.controlcenter.BaseTestConfig;
+import host.remote.controlcenter.AbstractBaseTest;
 import host.remote.controlcenter.TestDataPreloader;
 import host.remote.controlcenter.model.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-public class RemoteHostRepositoryTest extends BaseTestConfig {
+public class RemoteHostRepositoryTest extends AbstractBaseTest {
     private final RemoteHostRepository remoteHostRepository;
     private final AvailabilityStateRepository availabilityStateRepository;
     private final OperatingSystemRepository operatingSystemRepository;
